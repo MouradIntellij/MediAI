@@ -13,13 +13,13 @@ MediAI est une plateforme web full stack de gestion clinique intelligente. Le pr
 
 ```bash
 cd MediAI
-docker compose up --build
+npm run dev
 ```
 
 Puis ouvrir :
 
 - Frontend : http://localhost:8090
-- API : http://localhost:4000/health
+- API : http://localhost:4001/health
 
 Comptes de demonstration :
 
@@ -35,15 +35,13 @@ copy .env.example .env
 npm run install:all
 npm run db:migrate
 npm run db:seed
-npm run dev:backend
+npm run dev:app
 ```
 
-Dans un second terminal :
+Ce mode suppose que PostgreSQL et Redis sont deja disponibles en local.
 
-```bash
-cd MediAI
-npm run dev:frontend
-```
+- Frontend dev : http://localhost:5173
+- API dev : http://localhost:4000/health
 
 ## Structure
 

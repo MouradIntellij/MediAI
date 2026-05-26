@@ -2,6 +2,12 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const parseCorsOrigins = (value) =>
+  value
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
 export const env = {
   nodeEnv: process.env.NODE_ENV || "development",
   port: Number(process.env.PORT || 4000),
@@ -13,7 +19,10 @@ export const env = {
     process.env.JWT_SECRET ||
     "change-this-secret-in-production-use-a-long-random-value",
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || "8h",
-  corsOrigin: process.env.CORS_ORIGIN || "http://localhost:5173"
+  corsOrigins: parseCorsOrigins(
+    process.env.CORS_ORIGIN ||
+      "http://localhost:5173,http://127.0.0.1:5173,http://localhost:8090,http://127.0.0.1:8090"
+  )
 };
 
 export function assertProductionEnv() {

@@ -65,16 +65,32 @@ async function seed() {
 
     await client.query(
       `INSERT INTO appointments (patient_id, practitioner_id, starts_at, ends_at, status, reason)
-       VALUES ($1, $2, NOW() + INTERVAL '2 days', NOW() + INTERVAL '2 days 30 minutes', 'confirmed', $3)
-       ON CONFLICT DO NOTHING`,
+       SELECT $1, $2, NOW() + INTERVAL '2 days', NOW() + INTERVAL '2 days 30 minutes', 'confirmed', $3::text
+       WHERE NOT EXISTS (
+         SELECT 1
+         FROM appointments
+         WHERE patient_id = $1
+           AND practitioner_id = $2
+           AND reason = $3::text
+           AND status <> 'cancelled'
+       )`,
       [patientId, doctor.id, "Suivi hypertension et ajustement medicamenteux"]
     );
 
     await client.query(
       `INSERT INTO prescriptions
        (patient_id, practitioner_id, medication_name, dosage, frequency, start_date, instructions)
-       VALUES ($1, $2, $3, $4, $5, CURRENT_DATE, $6)
-       ON CONFLICT DO NOTHING`,
+       SELECT $1, $2, $3::varchar, $4::varchar, $5::varchar, CURRENT_DATE, $6::text
+       WHERE NOT EXISTS (
+         SELECT 1
+         FROM prescriptions
+         WHERE patient_id = $1
+           AND practitioner_id = $2
+           AND medication_name = $3::varchar
+           AND dosage = $4::varchar
+           AND frequency = $5::varchar
+           AND status = 'active'
+       )`,
       [
         patientId,
         doctor.id,
@@ -82,6 +98,28 @@ async function seed() {
         "10 mg",
         "1 fois par jour",
         "Prendre le matin, surveiller la tension."
+      ]
+    );
+
+    await client.query(
+      `INSERT INTO consultations
+       (patient_id, practitioner_id, notes, diagnosis, vitals, ai_summary, ai_risk)
+       SELECT $1, $2, $3::text, $4::text, $5::jsonb, $6::text, $7::jsonb
+       WHERE NOT EXISTS (
+         SELECT 1
+         FROM consultations
+         WHERE patient_id = $1
+           AND practitioner_id = $2
+           AND diagnosis = $4::text
+       )`,
+      [
+        patientId,
+        doctor.id,
+        "Patient suivi pour hypertension et diabete. Tension controlee, adherence correcte au traitement.",
+        "Suivi hypertension et diabete",
+        { bloodPressure: "132/84", heartRate: 78 },
+        "Controle cardiovasculaire stable avec surveillance metabolique recommandee.",
+        { level: "medium", reasons: ["hypertension", "diabetes"] }
       ]
     );
 

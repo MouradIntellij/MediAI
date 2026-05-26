@@ -10,6 +10,19 @@ const router = Router();
 
 router.use(authenticate);
 
+router.get("/", authorize("admin"), async (_req, res, next) => {
+  try {
+    const { rows } = await query(
+      `SELECT id, full_name, email, role, active, created_at
+       FROM users
+       ORDER BY created_at DESC`
+    );
+    res.json({ users: rows });
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get("/practitioners", async (_req, res, next) => {
   try {
     const { rows } = await query(

@@ -12,13 +12,15 @@ import {
 import { useAuth } from "../auth/AuthContext.jsx";
 
 const tabs = [
-  { id: "dashboard", label: "Tableau", icon: LayoutDashboard },
-  { id: "patients", label: "Patients", icon: Users },
-  { id: "appointments", label: "Rendez-vous", icon: CalendarDays },
-  { id: "consultations", label: "Consultations", icon: Stethoscope },
-  { id: "prescriptions", label: "Prescriptions", icon: ClipboardList },
-  { id: "analytics", label: "Analyse IA", icon: Activity },
-  { id: "security", label: "Securite", icon: ShieldCheck }
+  { id: "dashboard", label: "Tableau", icon: LayoutDashboard, roles: ["admin", "doctor", "nurse"] },
+  { id: "schedule", label: "Calendrier", icon: CalendarDays, roles: ["nurse", "admin"] },
+  { id: "patients", label: "Patients", icon: Users, roles: ["admin", "doctor", "nurse"] },
+  { id: "consultations", label: "Consultations", icon: Stethoscope, roles: ["doctor", "admin"] },
+  { id: "prescriptions", label: "Prescriptions", icon: ClipboardList, roles: ["doctor", "admin"] },
+  { id: "appointments", label: "Rendez-vous", icon: CalendarDays, roles: ["admin", "doctor", "nurse"] },
+  { id: "admin", label: "Administration", icon: ShieldCheck, roles: ["admin"] },
+  { id: "analytics", label: "Analyse IA", icon: Activity, roles: ["admin", "doctor"] },
+  { id: "security", label: "Audit", icon: ShieldCheck, roles: ["admin"] }
 ];
 
 export function Shell({ activeTab, onTabChange, children }) {
@@ -38,7 +40,7 @@ export function Shell({ activeTab, onTabChange, children }) {
         </div>
 
         <nav className="nav-list">
-          {tabs.map((tab) => {
+          {tabs.filter((tab) => tab.roles.includes(user?.role)).map((tab) => {
             const Icon = tab.icon;
             return (
               <button

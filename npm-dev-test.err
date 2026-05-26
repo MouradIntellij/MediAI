@@ -1,0 +1,189 @@
+(node:42864) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projets2026/MediAI/scripts/dev-docker.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to C:\Projets2026\MediAI\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42864) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+ Image mediai-frontend Building 
+ Image mediai-backend Building 
+ Image mediai-backend Built 
+ Image mediai-frontend Built 
+ Container mediai-backend-1 Recreate 
+ Container mediai-backend-1 Recreated 
+ Container mediai-frontend-1 Recreate 
+ Container mediai-frontend-1 Recreated 
+ Container mediai-redis-1 Starting 
+ Container mediai-postgres-1 Starting 
+ Container mediai-redis-1 Started 
+ Container mediai-postgres-1 Started 
+ Container mediai-redis-1 Waiting 
+ Container mediai-postgres-1 Waiting 
+postgres-1  | 2026-05-26 04:10:43.371 UTC [1] LOG:  starting PostgreSQL 16.13 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+postgres-1  | 2026-05-26 04:10:43.371 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2026-05-26 04:10:43.372 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2026-05-26 04:10:43.400 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2026-05-26 04:10:43.430 UTC [29] LOG:  database system was shut down at 2026-05-26 04:08:35 UTC
+postgres-1  | 2026-05-26 04:10:43.475 UTC [1] LOG:  database system is ready to accept connections
+ Container mediai-redis-1 Healthy 
+ Container mediai-postgres-1 Healthy 
+ Container mediai-backend-1 Starting 
+ Container mediai-backend-1 Started 
+ Container mediai-frontend-1 Starting 
+ Container mediai-frontend-1 Started 
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: using the "epoll" event method
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: nginx/1.27.5
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: OS: Linux 6.6.87.2-microsoft-standard-WSL2
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker processes
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 29
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 30
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 31
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 32
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 33
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 34
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 35
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 36
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 37
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 38
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 39
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 40
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 41
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 42
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 43
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 44
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 45
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 46
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 47
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 48
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 49
+frontend-1  | 2026/05/26 04:10:55 [notice] 1#1: start worker process 50
+backend-1   | npm error path /app
+backend-1   | npm error command failed
+backend-1   | npm error signal SIGTERM
+backend-1   | npm error command sh -c node src/server.js
+backend-1   | npm error A complete log of this run can be found in: /root/.npm/_logs/2026-05-26T04_10_59_085Z-debug-0.log
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 29#29: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 30#30: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 29#29: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 30#30: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 32#32: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 33#33: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 32#32: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 33#33: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 31#31: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 35#35: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 31#31: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 36#36: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 35#35: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 38#38: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 34#34: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 36#36: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 42#42: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 38#38: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 42#42: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 34#34: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 39#39: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 41#41: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 39#39: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 40#40: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 41#41: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 40#40: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 48#48: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 48#48: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 33#33: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 48#48: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 37#37: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 37#37: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 44#44: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 44#44: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 46#46: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 46#46: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 43#43: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 43#43: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 30#30: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 45#45: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 45#45: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 47#47: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 47#47: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 49#49: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 49#49: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 50#50: gracefully shutting down
+frontend-1  | 2026/05/26 04:11:09 [notice] 50#50: exiting
+frontend-1  | 2026/05/26 04:11:09 [notice] 32#32: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 34#34: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 49#49: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 35#35: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 40#40: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 45#45: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 46#46: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 36#36: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 39#39: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 47#47: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 37#37: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 31#31: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 43#43: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 42#42: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 38#38: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 50#50: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 29#29: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 41#41: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 44#44: exit
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 49
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 49 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 29 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 32 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 40 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 45 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 48
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 37 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 38 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 39 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 42 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 43 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 48 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 47
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 36 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 47 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 44
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 30 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 41 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 44 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 34 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 50
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 50 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 31 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 29 (SIGIO) received
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 35 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 46
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 46 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: worker process 33 exited with code 0
+frontend-1  | 2026/05/26 04:11:09 [notice] 1#1: exit
+postgres-1  | 2026-05-26 04:15:43.490 UTC [27] LOG:  checkpoint starting: time
+postgres-1  | 2026-05-26 04:15:43.631 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.107 s, sync=0.008 s, total=0.141 s; sync files=3, longest=0.005 s, average=0.003 s; distance=3 kB, estimate=3 kB; lsn=0/1A410F0, redo lsn=0/1A410B8
+postgres-1  | 2026-05-26 04:20:43.611 UTC [27] LOG:  checkpoint starting: time
+postgres-1  | 2026-05-26 04:20:44.568 UTC [27] LOG:  checkpoint complete: wrote 10 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.928 s, sync=0.010 s, total=0.958 s; sync files=10, longest=0.005 s, average=0.001 s; distance=12 kB, estimate=12 kB; lsn=0/1A442A0, redo lsn=0/1A44268
+postgres-1  | 2026-05-26 04:25:40.748 UTC [1] LOG:  received fast shutdown request
+postgres-1  | 2026-05-26 04:25:40.752 UTC [1] LOG:  aborting any active transactions
+postgres-1  | 2026-05-26 04:25:40.765 UTC [1] LOG:  background worker "logical replication launcher" (PID 32) exited with exit code 1
+postgres-1  | 2026-05-26 04:25:40.767 UTC [27] LOG:  shutting down
+postgres-1  | 2026-05-26 04:25:40.770 UTC [27] LOG:  checkpoint starting: shutdown immediate
+postgres-1  | 2026-05-26 04:25:40.792 UTC [27] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.008 s, sync=0.001 s, total=0.026 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=11 kB; lsn=0/1A44350, redo lsn=0/1A44350
+postgres-1  | 2026-05-26 04:25:40.812 UTC [1] LOG:  database system is shut down
