@@ -5,9 +5,12 @@ let redis;
 
 export function getRedis() {
   if (!redis) {
+    const isUpstash = env.redisUrl.includes("upstash.io");
     redis = new Redis(env.redisUrl, {
       lazyConnect: true,
-      maxRetriesPerRequest: 1
+      maxRetriesPerRequest: 1,
+      connectTimeout: 10000,
+      ...(isUpstash ? { tls: {} } : {}),
     });
 
     redis.on("error", (error) => {

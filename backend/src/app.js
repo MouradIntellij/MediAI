@@ -47,9 +47,9 @@ export function createApp() {
     try {
       const redis = getRedis();
       await redis.ping();
-      res.json({ ok: true, redis: "connected" });
-    } catch {
-      res.json({ ok: true, redis: "unavailable" });
+      res.json({ ok: true, redis: "connected", url: env.redisUrl.replace(/\/\/.*@/, "//***@") });
+    } catch (err) {
+      res.json({ ok: true, redis: "unavailable", error: err.message, url: env.redisUrl.replace(/\/\/.*@/, "//***@") });
     }
   });
 
