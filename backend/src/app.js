@@ -12,7 +12,6 @@ import consultationRoutes from "./routes/consultations.routes.js";
 import analyticsRoutes from "./routes/analytics.routes.js";
 import userRoutes from "./routes/users.routes.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
-import { getRedis } from "./config/redis.js";
 
 export function createApp() {
   const app = express();
@@ -44,12 +43,22 @@ export function createApp() {
   });
 
   app.get("/keepalive", async (_req, res) => {
+    const url = process.env.UPSTASH_REDIS_REST_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+    if (!url || !token) {
+      return res.json({ ok: true, redis: "unavailable", error: "UPSTASH_REDIS_REST_URL ou UPSTASH_REDIS_REST_TOKEN manquant" });
+    }
+
     try {
-      const redis = getRedis();
-      await redis.ping();
-      res.json({ ok: true, redis: "connected", url: env.redisUrl.replace(/\/\/.*@/, "//***@") });
+      const result = await fetch(`${url}/ping`, {
+        headers: { Authorization: `Bearer ${token}` },
+        signal: AbortSignal.timeout(5000),
+      });
+      const body = await result.text();
+      res.json({ ok: true, redis: result.ok ? "connected" : "unavailable", ping: body });
     } catch (err) {
-      res.json({ ok: true, redis: "unavailable", error: err.message, url: env.redisUrl.replace(/\/\/.*@/, "//***@") });
+      res.json({ ok: true, redis: "unavailable", error: err.message });
     }
   });
 
