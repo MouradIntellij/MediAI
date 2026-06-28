@@ -12,6 +12,7 @@ import consultationRoutes from "./routes/consultations.routes.js";
 import analyticsRoutes from "./routes/analytics.routes.js";
 import userRoutes from "./routes/users.routes.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
+import { getRedis } from "./config/redis.js";
 
 export function createApp() {
   const app = express();
@@ -40,6 +41,16 @@ export function createApp() {
       service: "mediai-api",
       timestamp: new Date().toISOString()
     });
+  });
+
+  app.get("/keepalive", async (_req, res) => {
+    try {
+      const redis = getRedis();
+      await redis.ping();
+      res.json({ ok: true, redis: "connected" });
+    } catch {
+      res.json({ ok: true, redis: "unavailable" });
+    }
   });
 
   app.use("/api/auth", authRoutes);
